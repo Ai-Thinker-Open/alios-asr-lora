@@ -344,7 +344,7 @@ struct Radio_s
      *
      * \retval  Value of the radio wake-up time.
      */
-    uint32_t ( *GetRadioWakeUpTime ) ( void );
+    uint32_t ( *GetWakeupTime ) ( void );
 
 };
 
