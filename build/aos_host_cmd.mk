@@ -107,8 +107,8 @@ define PRINT
 
 endef
 
-WRITE_FILE_CREATE =$(ECHO) '$(subst ',\047,$(subst \,\\,$(2)))' > $(1);
-WRITE_FILE_APPEND =$(ECHO) '$(subst ',\047,$(subst \,\\,$(2)))' >> $(1);
+WRITE_FILE_CREATE =$(file >$(strip $(1)),$(2))
+WRITE_FILE_APPEND =$(file >>$(strip $(1)),$(2))
 
 else # Linux32
 ifeq ($(HOST_OS),Linux64)
@@ -150,8 +150,8 @@ define PRINT
 
 endef
 
-WRITE_FILE_CREATE =$(ECHO) '$(subst ',\047,$(subst \,\\,$(2)))' > $(1);
-WRITE_FILE_APPEND =$(ECHO) '$(subst ',\047,$(subst \,\\,$(2)))' >> $(1);
+WRITE_FILE_CREATE =$(file >$(strip $(1)),$(2))
+WRITE_FILE_APPEND =$(file >>$(strip $(1)),$(2))
 # # Check the file writing is working correctly
 # # should result in: $'""\"\"\\"\\\"\\
 # TEST_DATA := $$'""\"\"\\"\\\"\\

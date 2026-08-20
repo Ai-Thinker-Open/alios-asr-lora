@@ -674,7 +674,7 @@ LoRaMacStatus_t SetTxContinuousWave1( uint16_t timeout, uint32_t frequency, uint
  *
  * \param [IN] enable if true, it enables a public network
  */
-//static void SetPublicNetwork( bool enable );
+static void SetPublicNetwork( bool enable );
 
 /*!
  * \brief Resets MAC specific parameters to default
@@ -3098,7 +3098,7 @@ LoRaMacStatus_t LoRaMacInitialization( LoRaMacPrimitives_t *primitives, LoRaMacC
     srand1( Radio.Random( ) );
 
     PublicNetwork = true;
-    Radio.SetPublicNetwork(true);
+    SetPublicNetwork( true );
     Radio.Sleep( );
 
     // Initialize class b
@@ -3408,7 +3408,7 @@ LoRaMacStatus_t LoRaMacMibSetRequestConfirm( MibRequestConfirm_t *mibSet )
         }
         case MIB_PUBLIC_NETWORK: {
             PublicNetwork = mibSet->Param.EnablePublicNetwork;
-            Radio.SetPublicNetwork(mibSet->Param.EnablePublicNetwork);
+            SetPublicNetwork( mibSet->Param.EnablePublicNetwork );
             break;
         }
         case MIB_REPEATER_SUPPORT: {
@@ -4034,7 +4034,6 @@ void LoRaMacTestSetChannel( uint8_t channel )
     Channel = channel;
 }
 
-#if 0
 static void SetPublicNetwork( bool enable )
 {
     PublicNetwork = enable;
@@ -4047,4 +4046,3 @@ static void SetPublicNetwork( bool enable )
         Radio.SetSyncWord( LORA_MAC_PRIVATE_SYNCWORD );
     }
 }
-#endif

@@ -10,8 +10,11 @@ $(NAME)_SOURCES := lora/system/crypto/aes.c                \
                    lora/mac/region/Region.c         \
                    lora/mac/region/RegionCommon.c   \
                    lora/mac/LoRaMac.c               \
-                   lora/mac/LoRaMacCrypto.c    \
-                   ../../../device/lora/sx1276/sx1276.c
+                   lora/mac/LoRaMacCrypto.c         \
+                   lora/mac/LoRaMacConfirmQueue.c   \
+                   lora/mac/LoRaMacClassB.c         \
+                   ../../../device/lora/sx1276/sx1276.c \
+                   ../../../device/lora/eml3047_lrwan/eml3047.c
 
 GLOBAL_INCLUDES +=  . \
                     ../../../device/lora/sx1276   \
